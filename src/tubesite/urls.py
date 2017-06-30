@@ -18,4 +18,7 @@ import views as v
 
 urlpatterns = [
     url(r'^$', v.index, name="index"),
+    url(r'^video/(?P<id>\w+)$', v.video_detail, name="video"),
+    url(r'^categories/$', v.categories, name="categories"),
+    url(r'^category/(?P<id>\w+)$', v.category, name="category"),
 ]

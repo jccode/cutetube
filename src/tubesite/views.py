@@ -8,3 +8,15 @@ from django.shortcuts import render
 
 def index(request):
     return render(request, "tubesite/index.html")
+
+
+def video_detail(request, id):
+    return render(request, "tubesite/video.html")
+
+
+def categories(request):
+    return render(request, "tubesite/categories.html")
+
+
+def category(request, id):
+    return render(request, "tubesite/category.html")

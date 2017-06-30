@@ -11,3 +11,8 @@ done
 wget http://divothemes.com/cutetube/images/slide_02.jpg
 wget http://divothemes.com/cutetube/images/slide_03.jpg
 wget http://divothemes.com/cutetube/images/slide_04.jpg
+
+
+sed -n "/data-original=\"\(images.*jpg\)\"/p" index.html
+sed -n "s/data-original=\"\(images.*jpg\)\"/data-original=\"{% static 'tubesite\/\1' %}\"/p" index.html
+sed -i "" "s/data-original=\"\(images.*jpg\)\"/data-original=\"{% static 'tubesite\/\1' %}\"/" index.html

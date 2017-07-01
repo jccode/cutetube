@@ -21,4 +21,5 @@ urlpatterns = [
     url(r'^video/(?P<id>\w+)$', v.video_detail, name="video"),
     url(r'^categories/$', v.categories, name="categories"),
     url(r'^category/(?P<id>\w+)$', v.category, name="category"),
+    url(r'^about/$', v.about, name="about"),
 ]

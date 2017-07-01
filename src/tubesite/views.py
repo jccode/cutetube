@@ -20,3 +20,7 @@ def categories(request):
 
 def category(request, id):
     return render(request, "tubesite/category.html")
+
+
+def about(request):
+    return render(request, "tubesite/info.html")

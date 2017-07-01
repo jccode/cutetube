@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+   <head>
+
+      <meta charset="utf-8">
+      <title>
+            CuteTube — Modern Video Theme
+      </title>
+      <meta charset="utf-8">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+
+      <!--FAVICON-->
+      <link rel="apple-touch-icon" sizes="180x180" href="{% static 'tubesite/favicons/apple-touch-icon.png' %}">
+      <link rel="icon" type="image/png" href="{% static 'tubesite/favicons/favicon-32x32.png' %}" sizes="32x32">
+      <link rel="icon" type="image/png" href="{% static 'tubesite/favicons/favicon-16x16.png' %}" sizes="16x16">
+      <link rel="manifest" href="{% static 'tubesite/favicons/manifest.json' %}">
+      <link rel="mask-icon" href="{% static 'tubesite/favicons/safari-pinned-tab.svg' %}" color="#ff0000">
+      <meta name="theme-color" content="#ffffff">
+      <!--/FAVICON-->
+
+      <!--CSS CRITICAL-->
+      <style>
+         html {
+            background: #000;
+         }
+
+         body {
+            background: #000;
+            opacity: 0;
+         }
+      </style>
+      <!--/CSS CRITICAL-->
+
+      <!--CSS MAIN-->
+      <link rel="stylesheet" href="{% static 'tubesite/css/app.css' %}">
+      <!--/CSS MAIN-->
+
+   </head>
+   <body class="page">
+      <div class="page__layout">
+
+         <div class="overlay"></div>
+         <!--HEADER-->
+         {% include "./_inc/_header.html" %}
+         <!--/HEADER-->
+         <div id="content-ajax">
+
+            <!--MAIN-->
+            <main class="page__main main">
+               <!--INDEX-->
+                {% block main_content %}
+                {% endblock %}
+               <!--/INDEX-->
+            </main>
+            <!--/MAIN-->
+
+             <!--FOOTER-->
+             {% include "./_inc/_footer.html" %}
+             <!--/FOOTER-->
+
+         </div>
+      </div>
+
+      <!--SCRIPTS MAIN-->
+      <script src="{% static 'tubesite/js/app.js' %}" async></script>
+      <!--/SCRIPTS MAIN-->
+      
+
+
+   </body>
+</html>

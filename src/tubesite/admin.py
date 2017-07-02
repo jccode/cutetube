@@ -6,5 +6,9 @@ from models import Category, Video
 
 # Register your models here.
 
-admin.site.register(Category)
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('image_thumbnail', 'name', 'image')
+
+
 admin.site.register(Video)

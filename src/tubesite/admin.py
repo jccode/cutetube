@@ -11,4 +11,8 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = ('image_thumbnail', 'name', 'image')
 
 
-admin.site.register(Video)
+@admin.register(Video)
+class VideoAdmin(admin.ModelAdmin):
+    list_display = ('poster_thumbnail', 'name', 'category', 'duration', 'quality')
+
+

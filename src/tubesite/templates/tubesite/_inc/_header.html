@@ -1,225 +1,93 @@
 {% load static %}
 
-         <header class="page__header header">
-            <div class="container">
-               <div class="header__left">
-                  <a href="{% url 'index' %}" class="logo js-ajax-link">
-                     <img src="{% static 'tubesite/images/logo.svg' %}" alt="">
-                  </a>
-                  <nav class="header__nav">
-                     <ul class="header__nav-list">
-                        <li class="header__nav-item header__nav-item--dropdown">
-                           <a href="{% url 'index' %}" class="header__nav-link js-ajax-link mobile-ajax-off">
-                              Home
-                           </a>
-                        </li>
+<header class="page__header header">
+    <div class="container">
+        <div class="header__left">
+            <a href="{% url 'index' %}" class="logo js-ajax-link">
+                <img src="{% static 'tubesite/images/logo.svg' %}" alt="">
+            </a>
+            <nav class="header__nav">
+                <ul class="header__nav-list">
+                    <li class="header__nav-item header__nav-item--dropdown">
+                        <a href="{% url 'index' %}" class="header__nav-link js-ajax-link mobile-ajax-off">
+                            Home
+                        </a>
+                    </li>
 
-                        <li class="header__nav-item header__nav-item--dropdown">
-                           <a href="{% url 'categories' %}" class="header__nav-link js-ajax-link mobile-ajax-off">
-                              Categories
-                           </a>
-                           <div class="header__nav-dropdown header__nav-dropdown--categories">
-                              <ul>
-                                 <li>
-                                    <a href="{% url 'category' 1 %}" class="js-ajax-link">
-                                       Action
-                                    </a>
-                                 </li>
-                                 <li>
-                                    <a href="{% url 'category' 1 %}" class="js-ajax-link">
-                                       Adventure
-                                    </a>
-                                 </li>
-                                 <li>
-                                    <a href="{% url 'category' 1 %}" class="js-ajax-link">
-                                       Animation
-                                    </a>
-                                 </li>
-                                 <li>
-                                    <a href="{% url 'category' 1 %}" class="js-ajax-link">
-                                       Biography
-                                    </a>
-                                 </li>
-                                 <li>
-                                    <a href="{% url 'category' 1 %}" class="js-ajax-link">
-                                       Comedy
-                                    </a>
-                                 </li>
-                                 <li>
-                                    <a href="{% url 'category' 1 %}" class="js-ajax-link">
-                                       Crime
-                                    </a>
-                                 </li>
-                                 <li>
-                                    <a href="{% url 'category' 1 %}" class="js-ajax-link">
-                                       Documentary
-                                    </a>
-                                 </li>
-                                 <li>
-                                    <a href="{% url 'category' 1 %}" class="js-ajax-link">
-                                       Drama
-                                    </a>
-                                 </li>
-                                 <li>
-                                    <a href="{% url 'category' 1 %}" class="js-ajax-link">
-                                       Family
-                                    </a>
-                                 </li>
-                              </ul>
-                              <ul>
-                                 <li>
-                                    <a href="{% url 'category' 1 %}" class="js-ajax-link">
-                                       Fantasy
-                                    </a>
-                                 </li>
-                                 <li>
-                                    <a href="{% url 'category' 1 %}" class="js-ajax-link">
-                                       Film-Noir
-                                    </a>
-                                 </li>
-                                 <li>
-                                    <a href="{% url 'category' 1 %}" class="js-ajax-link">
-                                       History
-                                    </a>
-                                 </li>
-                                 <li>
-                                    <a href="{% url 'category' 1 %}" class="js-ajax-link">
-                                       Horror
-                                    </a>
-                                 </li>
-                                 <li>
-                                    <a href="{% url 'category' 1 %}" class="js-ajax-link">
-                                       Music
-                                    </a>
-                                 </li>
-                                 <li>
-                                    <a href="{% url 'category' 1 %}" class="js-ajax-link">
-                                       Musical
-                                    </a>
-                                 </li>
-                                 <li>
-                                    <a href="{% url 'category' 1 %}" class="js-ajax-link">
-                                       Mystery
-                                    </a>
-                                 </li>
-                                 <li>
-                                    <a href="{% url 'category' 1 %}" class="js-ajax-link">
-                                       Romance
-                                    </a>
-                                 </li>
-                                 <li>
-                                    <a href="{% url 'category' 1 %}" class="js-ajax-link">
-                                       Sci-Fi
-                                    </a>
-                                 </li>
-                              </ul>
-                              <ul>
-                                 <li>
-                                    <a href="{% url 'category' 1 %}" class="js-ajax-link">
-                                       Sci-Fi
-                                    </a>
-                                 </li>
-                                 <li>
-                                    <a href="{% url 'category' 1 %}" class="js-ajax-link">
-                                       Sport
-                                    </a>
-                                 </li>
-                                 <li>
-                                    <a href="{% url 'category' 1 %}" class="js-ajax-link">
-                                       Game-Show
-                                    </a>
-                                 </li>
-                                 <li>
-                                    <a href="{% url 'category' 1 %}" class="js-ajax-link">
-                                       History
-                                    </a>
-                                 </li>
-                                 <li>
-                                    <a href="{% url 'category' 1 %}" class="js-ajax-link">
-                                       Horror
-                                    </a>
-                                 </li>
-                                 <li>
-                                    <a href="{% url 'category' 1 %}" class="js-ajax-link">
-                                       Musical
-                                    </a>
-                                 </li>
-                                 <li>
-                                    <a href="{% url 'category' 1 %}" class="js-ajax-link">
-                                       Mystery
-                                    </a>
-                                 </li>
-                                 <li>
-                                    <a href="{% url 'category' 1 %}" class="js-ajax-link">
-                                       Romance
-                                    </a>
-                                 </li>
-                                 <li>
-                                    <a href="{% url 'category' 1 %}" class="js-ajax-link">
-                                       News
-                                    </a>
-                                 </li>
-                              </ul>
-                           </div>
-                        </li>
+                    <li class="header__nav-item header__nav-item--dropdown">
+                        <a href="{% url 'categories' %}" class="header__nav-link js-ajax-link mobile-ajax-off">
+                            Categorie
+                        </a>
+                        <div class="header__nav-dropdown header__nav-dropdown--categories">
+                            {% for category in categories %}
+                                {% cycle '<ul>' '' '' '' '' %}
+                                    <li>
+                                        <a href="{% url 'category' category.id %}" class="js-ajax-link">
+                                            {{ category.name }}
+                                        </a>
+                                    </li>
+                                {% cycle '' '' '' '' '</ul>' %}
+                            {% endfor %}
+                        </div>
+                    </li>
 
-                        <li class="header__nav-item">
-                           <a href="{% url 'about' %}" class="header__nav-link js-ajax-link">
-                              Info
-                           </a>
-                        </li>
+                    <li class="header__nav-item">
+                        <a href="{% url 'about' %}" class="header__nav-link js-ajax-link">
+                            Info
+                        </a>
+                    </li>
 
-                     </ul>
-                  </nav>
-               </div>
-               <div class="header__right">
+                </ul>
+            </nav>
+        </div>
+        <div class="header__right">
 
-{#                   {% include "./_language.html" %}#}
+            {# {% include "./_language.html" %} #}
 
-                  <a href="#" class="search-open"></a>
-                  <a href="#" class="search-close"></a>
-               </div>
+            <a href="#" class="search-open"></a>
+            <a href="#" class="search-close"></a>
+        </div>
 
-               <!-- search form -->
-               <form action="#" method="post" class="search">
-                  <input type="text" name="search" class="search__field" placeholder="Search cutetube.com" autocomplete="off">
-                  <button class="search__button" type="submit"></button>
-                  <div class="search__enter">
-                     Enter
-                  </div>
-                  <div class="search__quick-links">
-                     <h6>Quick Links</h6>
-                     <ul>
-                        <li>
-                           <a href="#">Unlocking The Bible Codes</a>
-                        </li>
-                        <li>
-                           <a href="#">Mel Gibson movies</a>
-                        </li>
-                        <li>
-                           <a href="#">The Emerald Buddha</a>
-                        </li>
-                        <li>
-                           <a href="#">A Brief History Of Creation</a>
-                        </li>
-                     </ul>
-                  </div>
-               </form>
-               <!-- /search form -->
-               <a href="#" class="menu-open">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-               </a>
-               <a href="#" class="menu-close">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-               </a>
+        <!-- search form -->
+        <form action="#" method="post" class="search">
+            <input type="text" name="search" class="search__field" placeholder="Search cutetube.com" autocomplete="off">
+            <button class="search__button" type="submit"></button>
+            <div class="search__enter">
+                Enter
             </div>
-            <div class="mobile-menu">
-               <div class="mobile-menu__scroll-content">
-
-               </div>
+            <div class="search__quick-links">
+                <h6>Quick Links</h6>
+                <ul>
+                    <li>
+                        <a href="#">Unlocking The Bible Codes</a>
+                    </li>
+                    <li>
+                        <a href="#">Mel Gibson movies</a>
+                    </li>
+                    <li>
+                        <a href="#">The Emerald Buddha</a>
+                    </li>
+                    <li>
+                        <a href="#">A Brief History Of Creation</a>
+                    </li>
+                </ul>
             </div>
-         </header>
+        </form>
+        <!-- /search form -->
+        <a href="#" class="menu-open">
+            <span></span>
+            <span></span>
+            <span></span>
+        </a>
+        <a href="#" class="menu-close">
+            <span></span>
+            <span></span>
+            <span></span>
+        </a>
+    </div>
+    <div class="mobile-menu">
+        <div class="mobile-menu__scroll-content">
+
+        </div>
+    </div>
+</header>

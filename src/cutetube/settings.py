@@ -70,6 +70,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'tubesite.context_processors.categories',
             ],
         },
     },
@@ -134,6 +135,13 @@ STATICFILES_DIRS = [
 MEDIA_ROOT = 'media'
 MEDIA_URL = '/media/'
 
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'cutetube',
+    }
+}
 
 
 

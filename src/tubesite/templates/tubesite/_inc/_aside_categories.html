@@ -16,11 +16,11 @@
                                                      </a>
                                                  </li>
 
-                                                 {% for category in categories %}
+                                                 {% for category in categories_with_count %}
                                                      <li>
                                                          <a href="{% url 'category' category.id %}" class="is-active">
                                                              <span>{{ category.name }}</span>
-                                                             <span class="categories-menu__badge">326</span>
+                                                             <span class="categories-menu__badge">{{ category.count }}</span>
                                                          </a>
                                                      </li>
                                                  {% endfor %}

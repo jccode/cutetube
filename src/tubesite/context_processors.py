@@ -4,6 +4,6 @@ from models import Category
 
 def categories(request):
     # Should get from cache first
-    cats = cache.get_or_set("categories", lambda: Category.objects.all())
+    cats = cache.get_or_set("categories", lambda: Category.objects.all().values())
     context = {'categories': cats}
     return context

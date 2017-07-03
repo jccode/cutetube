@@ -14,5 +14,6 @@ class CategoryAdmin(admin.ModelAdmin):
 @admin.register(Video)
 class VideoAdmin(admin.ModelAdmin):
     list_display = ('poster_thumbnail', 'name', 'category', 'duration', 'quality')
+    list_display_links = ('poster_thumbnail', 'name')
 
 

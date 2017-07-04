@@ -19,6 +19,11 @@ def _categories_with_count():
     if cats is None:
         cats = Category.objects.all().values()
     c_counts = {c['category']: c['count'] for c in category_count()}
+
+    cats = list(cats)
     for cat in cats:
         cat['count'] = c_counts[cat['id']] if c_counts.has_key(cat['id']) else 0
+
+    # add "All" category
+    cats.insert(0, {"id":0, "name":"All", "count":sum(c_counts.values())})
     return cats

@@ -14,6 +14,27 @@
                                      <h4>Popular categories</h4>
                                  </div>
                                  <div class="row row--flex row--portrait">
+
+                                     {% for category in popular_categories %}
+                                         <div class="col-sm-3">
+                                         <a href="./category.html" class="category-preview js-ajax-link">
+                                             <div class="category-preview__image">
+                                                 <span class="lazy-bg-img" data-original="{{ category.image.url }}"></span>
+                                                 <div class="category-preview__info">
+                                                     <div class="category-preview__count">
+                                                         {{ category.count }}
+                                                     </div>
+                                                 </div>
+                                             </div>
+                                             <div class="category-preview__name">
+                                                 {{ category.name }}
+                                             </div>
+                                         </a>
+                                         </div>
+                                     {% endfor %}
+
+
+                                     {% comment %}
                                      <div class="col-sm-3">
                                          <a href="./category.html" class="category-preview js-ajax-link">
                                              <div class="category-preview__image">
@@ -70,6 +91,9 @@
                                                  Romance
                                              </div>
                                          </a>                     </div>
+
+                                     {% endcomment %}
+
                                  </div>
                              </div>
                          </div>

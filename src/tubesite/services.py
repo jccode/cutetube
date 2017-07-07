@@ -2,6 +2,7 @@
 from django.core.cache import cache
 from django.db.models import Count
 from models import Video, Category
+import random
 
 
 CACHE_KEY_CATEGORIES = "categories"
@@ -36,3 +37,16 @@ def get_category_all_count():
         # save to cache
         cache.set(CACHE_KEY_CATEGORY_ALL_COUNT, count)
         return count
+
+
+def get_popular_categories():
+    return cache.get_or_set("popular_categories", lambda: _get_popular_categories())
+
+
+# TODO to be correct the business
+def _get_popular_categories():
+    cats = get_categories()
+    if len(cats) <= 4:
+        return cats
+    else:
+        return random.sample(cats, 4)

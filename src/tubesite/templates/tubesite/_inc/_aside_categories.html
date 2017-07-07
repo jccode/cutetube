@@ -9,16 +9,16 @@
                                                  Category name
                                              </div>
                                              <ul class="categories-menu">
-                                                 {% comment %}
+
                                                  <li>
-                                                     <a href="./categories.html" class="is-active">
+                                                     <a href="{% url 'category' 0 %}" class="is-active">
                                                          <span>All</span>
-                                                         <span class="categories-menu__badge">654321</span>
+                                                         <span class="categories-menu__badge">{{ categories_all_count }}</span>
                                                      </a>
                                                  </li>
-                                                 {% endcomment %}
 
-                                                 {% for category in categories_with_count %}
+
+                                                 {% for category in categories %}
                                                      <li>
                                                          <a href="{% url 'category' category.id %}" class="is-active">
                                                              <span>{{ category.name }}</span>

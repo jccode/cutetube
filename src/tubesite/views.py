@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render
-from services import categories_with_count
+from services import get_category_all_count
 # Create your views here.
 
 
@@ -16,14 +16,14 @@ def video_detail(request, id):
 
 def categories(request):
     context = {
-        "categories_with_count": (categories_with_count())
+        "categories_all_count": get_category_all_count()
     }
     return render(request, "tubesite/categories.html", context)
 
 
 def category(request, id):
     context = {
-        "categories_with_count": (categories_with_count())
+        "categories_all_count": get_category_all_count()
     }
     return render(request, "tubesite/category.html", context)
 

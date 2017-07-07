@@ -1,9 +1,7 @@
-from django.core.cache import cache
-from models import Category
+from services import get_categories
 
 
 def categories(request):
     # Should get from cache first
-    cats = cache.get_or_set("categories", lambda: Category.objects.all().values())
-    context = {'categories': cats}
+    context = {'categories': get_categories()}
     return context

@@ -4,26 +4,35 @@ from django.db.models import Count
 from models import Video, Category
 
 
-def category_count():
-    return Video.objects.values("category").annotate(count=Count("category"))
+CACHE_KEY_CATEGORIES = "categories"
+CACHE_KEY_CATEGORY_ALL_COUNT = "category_all_count"
 
 
-def categories_with_count():
-    """Get categories with count from cache"""
-    return cache.get_or_set("categories_with_count", lambda: _categories_with_count())
-
-
-def _categories_with_count():
-    """Get categories with count"""
-    cats = cache.get("categories")
-    if cats is None:
+def get_categories():
+    cats = cache.get(CACHE_KEY_CATEGORIES)
+    if cats is not None:
+        return cats
+    else:
         cats = Category.objects.all().values()
-    c_counts = {c['category']: c['count'] for c in category_count()}
+        counts = Video.objects.values("category").annotate(count=Count("category"))
+        count_dict = {c['category']: c['count'] for c in counts}
+        for c in cats:
+            cid = c['id']
+            c['count'] = count_dict[cid] if count_dict.has_key(cid) else 0
 
-    cats = list(cats)
-    for cat in cats:
-        cat['count'] = c_counts[cat['id']] if c_counts.has_key(cat['id']) else 0
+        # set cats to cache
+        cache.set(CACHE_KEY_CATEGORIES, cats)
+        cache.set(CACHE_KEY_CATEGORY_ALL_COUNT, sum(count_dict.values()))
 
-    # add "All" category
-    cats.insert(0, {"id":0, "name":"All", "count":sum(c_counts.values())})
-    return cats
+        return cats
+
+
+def get_category_all_count():
+    count = cache.get(CACHE_KEY_CATEGORY_ALL_COUNT)
+    if count is not None:
+        return count
+    else:
+        count = Video.objects.count()
+        # save to cache
+        cache.set(CACHE_KEY_CATEGORY_ALL_COUNT, count)
+        return count

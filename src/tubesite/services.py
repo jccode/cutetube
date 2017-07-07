@@ -13,12 +13,12 @@ def get_categories():
     if cats is not None:
         return cats
     else:
-        cats = Category.objects.all().values()
+        cats = Category.objects.all()
         counts = Video.objects.values("category").annotate(count=Count("category"))
         count_dict = {c['category']: c['count'] for c in counts}
         for c in cats:
-            cid = c['id']
-            c['count'] = count_dict[cid] if count_dict.has_key(cid) else 0
+            cid = c.id
+            c.count = count_dict[cid] if count_dict.has_key(cid) else 0
 
         # set cats to cache
         cache.set(CACHE_KEY_CATEGORIES, cats)

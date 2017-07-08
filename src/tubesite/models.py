@@ -4,8 +4,6 @@ from __future__ import unicode_literals
 from django.db import models
 from django.utils.safestring import mark_safe
 from filer.fields.image import FilerImageField
-#from easy_thumbnails.files import get_thumbnailer
-#from urllib2 import urlopen
 
 # Create your models here.
 
@@ -42,8 +40,6 @@ class Video(models.Model):
 
     def poster_thumbnail(self):
         if self.poster:
-            # picture = urlopen(self.poster).read()
-            # poster_src = get_thumbnailer(picture).get_thumbnail({'crop': True, 'size': (32,32)})
             poster_src = self.poster
             s = '<img src="{src}" alt="{name}" width="32" height="32"/>'.format(src=poster_src, name=self.name)
             return mark_safe(s)

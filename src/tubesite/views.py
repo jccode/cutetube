@@ -1,9 +1,14 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render
 from services import get_category_all_count, get_popular_categories
+from models import Video
+
 # Create your views here.
+
+PAGE_SIZE = 20
 
 
 def index(request):
@@ -23,8 +28,22 @@ def categories(request):
 
 
 def category(request, id):
+    video_list = Video.objects.all() if id == '0' else Video.objects.filter(category=id)
+    paginator = Paginator(video_list, PAGE_SIZE)
+    page = request.GET.get("page", 1)
+
+    try:
+        videos = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        videos = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        videos = paginator.page(paginator.num_pages)
+
     context = {
-        "categories_all_count": get_category_all_count()
+        "categories_all_count": get_category_all_count(),
+        "videos": videos,
     }
     return render(request, "tubesite/category.html", context)
 

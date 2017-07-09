@@ -12,9 +12,14 @@
 
                                  <div class="info__content">
                                      <div class="video-player">
+                                         {% comment %}
                                          <div class="video-player__placeholder">
-                                             <span class="lazy-bg-img" data-original="{% static 'tubesite/images/poster.jpg' %}"></span>
+                                             <span class="lazy-bg-img" data-original="{{ video.poster }}"></span>
                                          </div>
+                                         {% endcomment %}
+                                         <video class="video-player__placeholder" src="{{ video.url }}" poster="{{ video.poster }}" controls >
+                                             Video is not supported in your browser.
+                                         </video>
                                          <a href="#" class="video-player__play"></a>
                                      </div>
 

@@ -16,7 +16,10 @@ def index(request):
 
 
 def video_detail(request, id):
-    return render(request, "tubesite/video.html")
+    context = {
+        "video": Video.objects.get(pk=id)
+    }
+    return render(request, "tubesite/video.html", context)
 
 
 def categories(request):

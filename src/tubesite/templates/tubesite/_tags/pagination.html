@@ -1,0 +1,56 @@
+
+                             <div class="page-controls">
+                                 <div class="pagination">
+                                     <ul class="pagination__pages">
+                                         <li>
+                                             {% if list.has_previous %}
+                                                 <a class="pagination__prev" href="?page={{ list.previous_page_number }}"></a>
+                                             {% else %}
+                                                 <button class="pagination__prev" disabled="disabled"></button>
+                                             {% endif %}
+                                         </li>
+
+                                     {% for index in page_indexes %}
+                                         {% if index == 0 %}
+                                             <li><span>...</span></li>
+                                         {% else %}
+                                             <li {% ifequal index list.number %}class="is-active"{% endifequal %}><a href="?page={{ index }}">{{ index }}</a>
+                                         {% endif %}
+                                     {% endfor %}
+
+
+                                         {% comment %}
+                                         <li class="is-active"><a href="#">1</a>
+                                         </li>
+                                         <li><a href="#">2</a>
+                                         </li>
+                                         <li><a href="#">3</a>
+                                         </li>
+                                         <li><a href="#">4</a>
+                                         </li>
+                                         <li><a href="#">5</a>
+                                         </li>
+                                         <li><a href="#">6</a>
+                                         </li>
+                                         <li><a href="#">7</a>
+                                         </li>
+                                         <li><a href="#">8</a>
+                                         </li>
+                                         <li><a href="#">9</a>
+                                         </li>
+                                         <li><span>...</span>
+                                         </li>
+                                         <li><a href="#">336</a>
+                                         </li>
+                                         {% endcomment %}
+
+                                         <li>
+                                             {% if list.has_next %}
+                                                 <a class="pagination__next" href="?page={{ list.next_page_number }}"></a>
+                                             {% else %}
+                                                 <button class="pagination__next" disabled="disabled"></button>
+                                             {% endif %}
+                                         </li>
+                                     </ul>
+                                 </div>
+                             </div>

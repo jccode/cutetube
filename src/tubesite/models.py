@@ -47,6 +47,10 @@ class Video(models.Model):
             return '(No poster)'
     poster_thumbnail.short_description = 'Thumb'
 
+    def quality_str(self):
+        choices = {c[0]: c[1] for c in self.QUALITY_CHOICES}
+        return choices[self.quality]
+
     def __unicode__(self):
         return self.name
 

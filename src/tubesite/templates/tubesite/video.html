@@ -1,6 +1,21 @@
 {% extends "./_base.html" %}
 {% load static %}
 
+{% block extra_style %}
+        <link href="{% static 'tubesite/node_modules/video.js/dist/video-js.css' %}" rel="stylesheet">
+        <link href="{% static 'tubesite/css/style.css' %}" rel="stylesheet">
+        <!--[if lt IE 9]>
+            <script src="{% static 'tubesite/node_modules/video.js/dist/ie8/videojs-ie8.min.js' %}"></script>
+        <![endif]-->
+{% endblock %}
+
+{% block extra_footer_script %}
+        <script src="{% static 'tubesite/node_modules/video.js/dist/video.min.js' %}"></script>
+        <script src="{% static 'tubesite/node_modules/videojs-flash/dist/videojs-flash.min.js' %}"></script>
+        <script src="{% static 'tubesite/node_modules/flv.js/dist/flv.min.js' %}"></script>
+        <script src="{% static 'tubesite/node_modules/videojs-flvjs/dist/videojs-flvjs.min.js' %}"></script>
+{% endblock %}
+
 {% block main_content %}
 
                  <!--VIDEO-->
@@ -534,3 +549,4 @@
                  <!--/VIDEO-->
 
 {% endblock %}
+

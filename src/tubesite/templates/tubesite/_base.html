@@ -36,7 +36,9 @@
 
       <!--CSS MAIN-->
       <link rel="stylesheet" href="{% static 'tubesite/css/app.css' %}">
+       {% block extra_style %}{% endblock %}
       <!--/CSS MAIN-->
+       {% block extra_head %}{% endblock %}
 
    </head>
    <body class="page">
@@ -74,9 +76,8 @@
 
       <!--SCRIPTS MAIN-->
       <script src="{% static 'tubesite/js/app.js' %}" async></script>
+      {% block extra_footer_script %}{% endblock %}
       <!--/SCRIPTS MAIN-->
-      
-
 
    </body>
 </html>

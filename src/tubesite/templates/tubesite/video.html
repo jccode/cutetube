@@ -32,10 +32,27 @@
                                              <span class="lazy-bg-img" data-original="{{ video.poster }}"></span>
                                          </div>
                                          {% endcomment %}
-                                         <video class="video-player__placeholder" src="{{ video.url }}" poster="{{ video.poster }}" controls >
+
+                                         {% comment %} {% endcomment %}
+                                         <video id="videoplayer" class="video-js" controls preload="auto" poster="{{ video.poster }}"
+                                               data-setup='{"techOrder":["html5", "flvjs", "flash"]}'>
+{#                                            <source src="{{ video.src }}" type='video/mp4'>#}
+                                            <source src="{{ video.src }}" type='video/x-flv'>
+
+                                            <p class="vjs-no-js">
+                                                To view this video please enable JavaScript, and consider upgrading to a web browser that
+                                                <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                                            </p>
+                                        </video>
+
+
+                                         {% comment %}
+                                         <video class="video-player__placeholder" src="{{ video.src }}" poster="{{ video.poster }}" controls >
                                              Video is not supported in your browser.
                                          </video>
                                          <a href="#" class="video-player__play"></a>
+                                         {% endcomment %}
+
                                      </div>
 
                                      <div class="bnr-container bnr-container--lg">

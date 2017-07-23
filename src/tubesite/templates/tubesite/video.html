@@ -37,13 +37,34 @@
                                          <div class="video-player__placeholder">
                                              <span class="lazy-bg-img" data-original="{{ video.poster }}"></span>
                                          </div>
+<<<<<<< HEAD
 
                                          <video class="video-player__placeholder" src="{{ video.url }}" poster="{{ video.poster }}" controls >
+=======
+                                         {% endcomment %}
+
+                                         {% comment %} {% endcomment %}
+                                         <video id="videoplayer" class="video-js" controls preload="auto" poster="{{ video.poster }}"
+                                               data-setup='{"techOrder":["html5", "flvjs", "flash"]}'>
+{#                                            <source src="{{ video.src }}" type='video/mp4'>#}
+                                            <source src="{{ video.src }}" type='video/x-flv'>
+
+                                            <p class="vjs-no-js">
+                                                To view this video please enable JavaScript, and consider upgrading to a web browser that
+                                                <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                                            </p>
+                                        </video>
+
+
+                                         {% comment %}
+                                         <video class="video-player__placeholder" src="{{ video.src }}" poster="{{ video.poster }}" controls >
+>>>>>>> 98924cb1a016cd9db5dfafe36e69983e71bc522e
                                              Video is not supported in your browser.
                                          </video>
                                          <a href="#" class="video-player__play"></a>
                                          {% endcomment %}
 
+<<<<<<< HEAD
                                          <video id="video-player" class="video-js" controls preload="auto"
                                                 style="width:100%;height:400px"
                                                 data-setup='{"techOrder":["html5", "flvjs", "flash"]}'
@@ -56,6 +77,8 @@
                                              </p>
                                          </video>
 
+=======
+>>>>>>> 98924cb1a016cd9db5dfafe36e69983e71bc522e
                                      </div>
 
                                      <div class="bnr-container bnr-container--lg">

@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render
+from django.forms.models import model_to_dict
 from services import get_category_all_count, get_popular_categories
 from models import Video
 
@@ -17,7 +18,7 @@ def index(request):
 
 def video_detail(request, id):
     context = {
-        "video": Video.objects.get(pk=id)
+        "video": model_to_dict(Video.objects.get(pk=id))
     }
     return render(request, "tubesite/video.html", context)
 

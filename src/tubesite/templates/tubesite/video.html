@@ -1,5 +1,6 @@
 {% extends "./_base.html" %}
 {% load static %}
+{% load cutesite_extra %}
 
 {% block extra_style %}
         <link href="{% static 'tubesite/node_modules/video.js/dist/video-js.css' %}" rel="stylesheet">
@@ -9,11 +10,16 @@
         <![endif]-->
 {% endblock %}
 
+
 {% block extra_footer_script %}
+    <!-- libs -->
         <script src="{% static 'tubesite/node_modules/video.js/dist/video.min.js' %}"></script>
         <script src="{% static 'tubesite/node_modules/videojs-flash/dist/videojs-flash.min.js' %}"></script>
         <script src="{% static 'tubesite/node_modules/flv.js/dist/flv.min.js' %}"></script>
         <script src="{% static 'tubesite/node_modules/videojs-flvjs/dist/videojs-flvjs.min.js' %}"></script>
+
+    <!-- page specify js -->
+        <script src="{% static 'tubesite/js/video.js' %}" ></script>
 {% endblock %}
 
 {% block main_content %}
@@ -31,11 +37,25 @@
                                          <div class="video-player__placeholder">
                                              <span class="lazy-bg-img" data-original="{{ video.poster }}"></span>
                                          </div>
-                                         {% endcomment %}
+
                                          <video class="video-player__placeholder" src="{{ video.url }}" poster="{{ video.poster }}" controls >
                                              Video is not supported in your browser.
                                          </video>
                                          <a href="#" class="video-player__play"></a>
+                                         {% endcomment %}
+
+                                         <video id="video-player" class="video-js" controls preload="auto"
+                                                style="width:100%;height:400px"
+                                                data-setup='{"techOrder":["html5", "flvjs", "flash"]}'
+                                                data-model='{{ video|json }}'>
+                                             <p class="vjs-no-js">
+                                                 To view this video please enable JavaScript, and consider upgrading to
+                                                 a web browser that
+                                                 <a href="http://videojs.com/html5-video-support/" target="_blank">supports
+                                                     HTML5 video</a>
+                                             </p>
+                                         </video>
+
                                      </div>
 
                                      <div class="bnr-container bnr-container--lg">
@@ -549,4 +569,3 @@
                  <!--/VIDEO-->
 
 {% endblock %}
-

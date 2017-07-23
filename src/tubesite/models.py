@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 
 from django.db import models
 from django.utils.safestring import mark_safe
+from django.contrib.postgres.fields import JSONField
 from filer.fields.image import FilerImageField
 
 # Create your models here.
@@ -30,13 +31,19 @@ class Video(models.Model):
         (0, 'Normal'),
         (1, 'HD'),
     )
-    category = models.ForeignKey('Category')
-    name = models.CharField(max_length=100)
+    category = models.ForeignKey('Category', blank=True, null=True)
+    name = models.CharField(max_length=100, blank=True)
     desc = models.TextField(max_length=200, blank=True)
     poster = models.URLField()
     src = models.URLField()
     duration = models.IntegerField()
     quality = models.IntegerField(choices=QUALITY_CHOICES, default=0)
+    multiple = models.BooleanField(default=False)
+    extra = JSONField(blank=True, null=True)
+    """
+    extra json format:
+    { videos: [{src:"", poster:"", duration:"" }, ], }
+    """
 
     def poster_thumbnail(self):
         if self.poster:
@@ -52,5 +59,5 @@ class Video(models.Model):
         return choices[self.quality]
 
     def __unicode__(self):
-        return self.name
+        return self.name if self.name is not None else self.poster
 

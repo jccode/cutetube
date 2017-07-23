@@ -6,3 +6,8 @@ db.sqlite3
 media/
 node_modules/
 *.map
+scripts/*
+!scripts/*.py
+**/migrations/**
+!**/migrations/__init__.py
+*.jsonl

@@ -9,7 +9,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "breakpoints-js": "^1.0.4",
     "flv.js": "^1.3.2",
+    "jquery-lazyload": "^1.9.7",
+    "scrollreveal": "^3.3.6",
     "slick-carousel": "^1.6.0",
     "video.js": "^6.2.0",
     "videojs-flash": "^2.0.0",

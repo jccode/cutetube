@@ -75,7 +75,18 @@
       </div>
 
       <!--SCRIPTS MAIN-->
-      <script src="{% static 'tubesite/js/app.js' %}" ></script>
+
+      <script src="{% static 'tubesite/node_modules/jquery/dist/jquery.min.js' %}"></script>
+      <script src="{% static 'tubesite/node_modules/breakpoints-js/dist/breakpoints.min.js' %}"></script>
+      <script src="{% static 'tubesite/node_modules/scrollreveal/dist/scrollreveal.min.js' %}"></script>
+      <script src="{% static 'tubesite/node_modules/slick-carousel/slick/slick.min.js' %}"></script>
+      <script src="{% static 'tubesite/node_modules/jquery-lazyload/jquery.lazyload.js' %}"></script>
+
+      <script src="{% static 'tubesite/js/app2.js' %}" ></script>
+
+
+{#      <script src="{% static 'tubesite/js/app.js' %}" ></script>#}
+
       {% block extra_footer_script %} {% endblock %}
       <!--/SCRIPTS MAIN-->
 

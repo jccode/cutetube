@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.core.cache import cache
 from django.db.models import Count
-from models import Video, Category
+from .models import Video, Category
 import random
 
 

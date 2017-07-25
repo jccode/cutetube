@@ -1,4 +1,4 @@
-from services import get_categories
+from .services import get_categories
 
 
 def categories(request):

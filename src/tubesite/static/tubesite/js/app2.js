@@ -41,6 +41,7 @@ $(window).on("load", function() {
     body.css("opacity", 1);
 });
 
+/*
 body.on("click", ".js-ajax-link", function(e) {
     if (pat.test(window.location.href)) {
         e.preventDefault();
@@ -82,6 +83,7 @@ body.on("click", ".js-ajax-link", function(e) {
         }, 200)
     }
 });
+*/
 
 window.onpopstate = function(e) {
     pat.test(window.location.href) && (contentAjax.addClass("is-loading"), setTimeout(function() {
@@ -103,6 +105,7 @@ window.onpopstate = function(e) {
     }));
 };
 
+/*
 body.on("click", ".tabs__link", function(e) {
     var t = $("#tabs-content");
     if (pat.test(window.location.href)) {
@@ -121,6 +124,7 @@ body.on("click", ".tabs__link", function(e) {
         })
     }
 });
+*/
 
 
 function breakpoint() {

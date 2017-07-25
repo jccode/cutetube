@@ -61,9 +61,9 @@ class VideoImporter(object):
         if len(videos) > 1:
             video_model.multiple = True
             video_model.extra = {
-                videos: videos
+                "videos": videos
             }
-            video_model.duration = sum(v.get("duration", 0) for v in videos)
+            video_model.duration = sum(int(v.get("duration", "0")) for v in videos)
         else:
             video_model.multiple = False
             video_model.src = v0.get("src")

@@ -19,7 +19,7 @@ def get_categories():
         count_dict = {c['category']: c['count'] for c in counts}
         for c in cats:
             cid = c.id
-            c.count = count_dict[cid] if count_dict.has_key(cid) else 0
+            c.count = count_dict[cid] if cid in count_dict else 0
 
         # set cats to cache
         cache.set(CACHE_KEY_CATEGORIES, cats)
@@ -49,4 +49,4 @@ def _get_popular_categories():
     if len(cats) <= 4:
         return cats
     else:
-        return random.sample(cats, 4)
+        return random.sample(list(cats), 4)

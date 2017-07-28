@@ -6,8 +6,23 @@ RUN apk add --no-cache --virtual build-dependencies postgresql-dev make gcc \
     libwebp-dev tcl-dev tk-dev libxml2-dev libxslt-dev libffi-dev
 
 ENV PYTHONUNBUFFERED 1
+#ENV DJANGO_SETTINGS_MODULE "cutetube.settings_prod"
+
 RUN mkdir /app
-WORKDIR /app
+
 ADD requirements.txt /app/
-RUN pip install -r requirements.txt
 ADD src/ /app/
+
+WORKDIR /app
+
+RUN pip install -r requirements.txt
+
+ADD docker-entrypoint.sh /docker-entrypoint.sh
+
+#ENV DJANGO_SETTINGS_MODULE "cutetube.settings_prod"
+
+# Gunicorn - 8000
+#EXPOSE 8000
+
+# start gunicorn
+#CMD ["gunicorn", "cutetube.wsgi:application", "-b :8000"]

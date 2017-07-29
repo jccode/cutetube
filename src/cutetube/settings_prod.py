@@ -19,3 +19,6 @@ DATABASES = {
         'PORT': DB_PORT,
     }
 }
+
+STATIC_ROOT = os.environ.get("STATIC_ROOT", os.path.join(BASE_DIR, "static"))
+MEDIA_ROOT = os.environ.get("MEDIA_ROOT", os.path.join(BASE_DIR, "media"))

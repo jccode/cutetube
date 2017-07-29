@@ -4,8 +4,10 @@ from __future__ import unicode_literals
 from django.db import models
 from django.utils.safestring import mark_safe
 # from django.contrib.postgres.fields import JSONField
-from jsonfield import JSONField
+# from jsonfield import JSONField
+from .utils import JSONField
 from filer.fields.image import FilerImageField
+
 
 # Create your models here.
 

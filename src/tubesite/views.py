@@ -6,9 +6,12 @@ from django.shortcuts import render
 from django.forms.models import model_to_dict
 from .services import get_category_all_count, get_popular_categories
 from .models import Video
+import logging
+
 
 # Create your views here.
 
+logger = logging.getLogger(__name__)
 PAGE_SIZE = 20
 
 

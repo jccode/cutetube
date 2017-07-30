@@ -10,9 +10,9 @@ def duration(value):
     HOUR = 60 * 60
     h = None
     if value >= HOUR:
-        h = value / HOUR
+        h = value // HOUR
         value = value - HOUR
-    (m, s) = (value / 60, value % 60)
+    (m, s) = (value // 60, value % 60)
     return "{}:{:02d}".format(m, s) if h is None else "{}:{:02d}:{:02d}".format(h, m, s)
 
 

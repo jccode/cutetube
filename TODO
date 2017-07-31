@@ -1,0 +1,10 @@
+-*- mode:org; -*-
+
+* TODOs
+** TODO Docker Gunicorn production configuration
+** TODO Django logging configration
+** TODO Docker添加"Redis"依赖
+** TODO Player CSS调整,适配桌面/移动.
+** TODO 赞/踩
+** TODO 用户注册
+** TODO 评论
